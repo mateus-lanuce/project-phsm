@@ -1,7 +1,7 @@
 <?php
 
 //classe que faz a conexao com o banco de dados.
-class DBConnection {
+abstract class DBConnection {
     private static $dbHost = 'localhost';
     private static $dbNome = 'aula2web'; //colocar o nome do banco de dados
     private static $dbUsuario = 'root';
@@ -13,7 +13,7 @@ class DBConnection {
     }
 
     //função de conexão com o banco de dados;
-    public static function connection() 
+    protected static function connection() 
     {
         if (self::$conexao == null) {
 
@@ -36,7 +36,7 @@ class DBConnection {
     }
 
     //encerrar a conexão com banco.
-    public static function  closeConnection()
+    protected static function  closeConnection()
     {
         self::$conexao = null;
     }
