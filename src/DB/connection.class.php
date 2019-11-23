@@ -1,7 +1,7 @@
 <?php
 
 //classe que faz a conexao com o banco de dados.
-abstract class DBConnection {
+class Connection {
     private static $dbHost = 'localhost';
     private static $dbNome = 'aula2web'; //colocar o nome do banco de dados
     private static $dbUsuario = 'root';
@@ -13,7 +13,7 @@ abstract class DBConnection {
     }
 
     //função de conexão com o banco de dados;
-    protected static function connection() 
+    public static function connection() 
     {
         if (self::$conexao == null) {
 
@@ -22,6 +22,7 @@ abstract class DBConnection {
                     "dbname=".self::$dbNome, 
                     self::$dbUsuario, self::$dbSenha
                 );
+                echo 'teste';
             } 
             catch(PDOException $exception) {
                 echo("Erro com o banco de dados: ".$exception->getMessage());
@@ -36,7 +37,7 @@ abstract class DBConnection {
     }
 
     //encerrar a conexão com banco.
-    protected static function  closeConnection()
+    public static function  closeConnection()
     {
         self::$conexao = null;
     }
