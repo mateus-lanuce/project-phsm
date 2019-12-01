@@ -16,7 +16,7 @@
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-  <link href="css/freelancer.min.css" rel="stylesheet" >
+  <link href="./public/css/freelancer.min.css" rel="stylesheet" >
 
 </head>
 
@@ -33,11 +33,11 @@
         <ul class="navbar-nav ml-auto">
           
           <li class="nav-item mx-0 mx-lg-1">
-            <a href="login/login.php"><button type="button" class="btn btn-light mr-sm-2">Entrar</button></a>
+            <a href="./public/login/login.php"><button type="button" class="btn btn-light mr-sm-2">Entrar</button></a>
           </li>
           <br>
           <li class="nav-item mx-0 mx-lg-1">
-            <a href="Register/Register.php"><button type="button" class="btn btn-light mr-sm-2">Cadastre-se</button></a>
+            <a href="./public/Register/Register.php"><button type="button" class="btn btn-light mr-sm-2">Cadastre-se</button></a>
           </li>
         </ul>
       </div>
@@ -47,7 +47,7 @@
   <header class="masthead bg-primary text-white text-center">
     <div class="container d-flex align-items-center flex-column">
 
-      <img class="masthead-avatar mb-5" src="img/icon2.png" alt="">
+      <img class="masthead-avatar mb-5" src="./public/img/icon2.png" alt="">
 
       <h1 class="masthead-heading text-uppercase mb-0">SIMULADO DE PROVAS</h1>
 

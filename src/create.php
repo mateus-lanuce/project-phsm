@@ -1,6 +1,6 @@
 <?php
 
-require './DB/conexao.class.php';
+require 'DB/conexao.class.php';
 
 //classe com todos os metodos que fazem cadastro no banco.
 class Create extends Conexao{
@@ -206,6 +206,3 @@ class Create extends Conexao{
     
 }
 
-$teste = new Create();
-
-var_dump($teste->cadastrarProfessor('mateus', 'mateus@gmail.com', 'mateus'));

@@ -1,6 +1,6 @@
 <?php
 
-    require './DB/conexao.class.php';
+    require 'DB/conexao.class.php';
 
 class Update extends Conexao {
     
