@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `simulado_online`.`professor` (
 -- Table `simulado_online`.`questao`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `simulado_online`.`questao` (
-  `id` INT(6) UNSIGNED NOT NULL,
+  `id` INT(6) UNSIGNED NOT NULL AUTO_INCREMENT,
   `enunciado` TEXT(1000) NOT NULL,
   `materia` VARCHAR(45) NOT NULL,
   `professor_id` INT(6) UNSIGNED NOT NULL,
