@@ -23,7 +23,7 @@ if(isset($_POST)) {
 				echo "<script>
 					alert('Cadastro realizado com sucesso, ' + 
 						'por favor faça login');
-				</script>";
+        </script>";
 			}
 
 			break;
