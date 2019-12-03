@@ -11,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta chaset="utf-8" />
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
-    <title>Simulado Online</title>
+    <title>Adicionar Questão</title>
     <link href="../css/freelancer.min.css" rel="stylesheet">
 </head>
 
@@ -27,11 +27,14 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#">Questões</a>
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="m-questões.php">Minhas Questões</a>
+                </li>
+                <li class="nav-item mx-0 mx-lg-1">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="add-questão.php">Adicionar Questão</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Aluno X
+                        Professor X
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="perfil.php"><img class="mr-2" src="img/perfil.png" width="20px"></img>Perfil</a>
@@ -47,34 +50,18 @@
     </nav>
     <br><br><br><br><br>
 
-    <!-- Filtrar questões -->
-    <h1 class=" mb-3 text-center text-secondary">Questões</h1>
+    <h1 class=" mb-3 text-center text-secondary">Adicionar Questão</h1>
+
     <div class="container">
         <div class="jumbotron">
-            <center>
-                <div class="col-3">
-                    <form method="POST" action="#">
-                        <select class="browser-default custom-select" width="20%">
-                            <option selected>Disciplina</option>
-                            <option value="1">Informática</option>
-                       </select>
-                    </form>
-                </div>
-
-            <a href="#"><button type="button" class="btn btn-secondary mr-sm-2">Filtrar</button></a>
-            </center>
+            <div class="row">   
+                
+            </div>
         </div>
     </div>
 
-    <!-- Mostrar questões -->
-
-
-
-
-
 
     <!-- Footer -->
-
     <footer class="footer text-center">
         <div class="container">
             <center>
@@ -99,16 +86,13 @@
         </a>
     </div>
 
-    <script>
-        alert("Seja vem vindo Aluno!");
-    </script>
-    </nav>
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
     <script src="../js/jqBootstrapValidation.js"></script>
     <script src="../js/contact_me.js"></script>
     <script src="../js/freelancer.min.js"></script>
+
 </body>
 
 </html>
