@@ -37,6 +37,12 @@ CREATE TABLE IF NOT EXISTS `simulado_online`.`professor` (
 CREATE TABLE IF NOT EXISTS `simulado_online`.`questao` (
   `id` INT(6) UNSIGNED NOT NULL AUTO_INCREMENT,
   `enunciado` TEXT(1000) NOT NULL,
+  `alternativa_a` TEXT(350) NULL,
+  `alternativa_b` TEXT(350) NULL,
+  `alternativa_c` TEXT(350) NULL,
+  `alternativa_d` TEXT(350) NULL,
+  `alternativa_e` TEXT(350) NULL,
+  `correta` ENUM('a', 'b', 'c', 'd', 'e') NULL,
   `materia` VARCHAR(45) NOT NULL,
   `professor_id` INT(6) UNSIGNED NOT NULL,
   PRIMARY KEY (`id`),
@@ -44,23 +50,3 @@ CREATE TABLE IF NOT EXISTS `simulado_online`.`questao` (
   CONSTRAINT `fk_questao_professor`
     FOREIGN KEY (`professor_id`)
     REFERENCES `simulado_online`.`professor` (`id`));
-
-
--- -----------------------------------------------------
--- Table `simulado_online`.`resposta`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `simulado_online`.`resposta` (
-  `id` INT(6) UNSIGNED NOT NULL,
-  `alternativa_a` TEXT(350) NULL,
-  `alternativa_b` TEXT(350) NULL,
-  `alternativa_c` TEXT(350) NULL,
-  `alternativa_d` TEXT(350) NULL,
-  `alternativa_e` TEXT(350) NULL,
-  `correta` ENUM('a', 'b', 'c', 'd', 'e') NULL,
-  `questao_id` INT(6) UNSIGNED NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_resposta_questao1_idx` (`questao_id` ASC) ,
-  CONSTRAINT `fk_resposta_questao1`
-    FOREIGN KEY (`questao_id`)
-    REFERENCES `simulado_online`.`questao` (`id`));
-
