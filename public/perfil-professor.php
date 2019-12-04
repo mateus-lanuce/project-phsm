@@ -11,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta chaset="utf-8" />
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
-    <title>Simulado Online</title>
+    <title>Perfil - Professor</title>
     <link href="../css/freelancer.min.css" rel="stylesheet">
 </head>
 
@@ -50,9 +50,40 @@
     </nav>
     <br><br><br><br><br>
 
+    <h1 class=" mb-3 text-center text-secondary">Meu Perfil</h1>
+
+    <div class="container">
+        <div class="jumbotron">
+            <div class="row">   
+                <div class="col12">
+                    <img class="ml-5" src="img/usuario-logado.png" width="150px"></img>   
+                </div>
+                <form method="POST">
+                    <div class="row">
+                        <label class="ml-5 mt-2" for="name">Nome: 
+                            <?php echo "Fulano" ?>
+                        </label>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <label class="ml-5" for="email">Email: 
+                            <?php echo "fulaninho@gmail.com"  ?>
+                        </label>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <label class="ml-5" for="cargo">Cargo: 
+                            <?php echo "Professor"  ?>
+                        </label>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Footer -->
-
     <footer class="footer text-center">
         <div class="container">
             <center>
@@ -76,10 +107,7 @@
         <i class="fa fa-chevron-up"></i>
         </a>
     </div>
-    
-    <script>
-        alert("Seja vem vindo Professor!");
-    </script>
+
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>

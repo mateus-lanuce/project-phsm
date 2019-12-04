@@ -37,7 +37,7 @@
                         Professor X
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="perfil.php"><img class="mr-2" src="img/perfil.png" width="20px"></img>Perfil</a>
+                        <a class="dropdown-item" href="perfil-professor.php"><img class="mr-2" src="img/perfil.png" width="20px"></img>Perfil</a>
                         <a class="dropdown-item" href="#"><img class="mr-2" src="img/configuracoes.png" width="20px"></img>Configurações</a>
                         <a class="dropdown-item" href="#">Outra ação</a>
                         <div class="dropdown-divider"></div>

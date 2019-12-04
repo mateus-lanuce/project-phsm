@@ -11,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta chaset="utf-8" />
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
-    <title>Simulado Online</title>
+    <title>Perfil - Aluno</title>
     <link href="../css/freelancer.min.css" rel="stylesheet">
 </head>
 
@@ -26,18 +26,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="m-questões.php">Minhas Questões</a>
-                </li>
-                <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="add-questão.php">Adicionar Questão</a>
-                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Professor X
+                        Aluno X
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="perfil-professor.php"><img class="mr-2" src="img/perfil.png" width="20px"></img>Perfil</a>
+                        <a class="dropdown-item" href="perfil-aluno.php"><img class="mr-2" src="img/perfil.png" width="20px"></img>Perfil</a>
                         <a class="dropdown-item" href="#"><img class="mr-2" src="img/configuracoes.png" width="20px"></img>Configurações</a>
                         <a class="dropdown-item" href="#">Outra ação</a>
                         <div class="dropdown-divider"></div>
@@ -50,9 +44,40 @@
     </nav>
     <br><br><br><br><br>
 
+    <h1 class=" mb-3 text-center text-secondary">Meu Perfil</h1>
+
+    <div class="container">
+        <div class="jumbotron">
+            <div class="row">   
+                <div class="col12">
+                    <img class="ml-5" src="img/usuario-logado.png" width="150px"></img>   
+                </div>
+                <form method="POST">
+                    <div class="row">
+                        <label class="ml-5 mt-2" for="name">Nome: 
+                            <?php echo "Fulano" ?>
+                        </label>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <label class="ml-5" for="email">Email: 
+                            <?php echo "fulaninho@gmail.com"  ?>
+                        </label>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <label class="ml-5" for="cargo">Cargo: 
+                            <?php echo "Aluno"  ?>
+                        </label>
+                    </div>
+                    <a href="#"><button type="button" class="btn btn-secondary mr-sm-2">Editar Perfil</button></a>
+                </form>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Footer -->
-
     <footer class="footer text-center">
         <div class="container">
             <center>
@@ -76,10 +101,7 @@
         <i class="fa fa-chevron-up"></i>
         </a>
     </div>
-    
-    <script>
-        alert("Seja vem vindo Professor!");
-    </script>
+
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
