@@ -19,7 +19,7 @@
     <!-- Menu de Navegação -->
     <nav class="navbar navbar-expand-lg bg-secondary text-uppercas fixed-top" id="mainNav">
     <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">SIMULADOS - ONLINE</a>
+        <a class="navbar-brand js-scroll-trigger" href="indexProfessor.php">SIMULADOS - ONLINE</a>
         <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
         <i class="fas fa-bars"></i>
@@ -54,9 +54,106 @@
 
     <div class="container">
         <div class="jumbotron">
-            <div class="row">   
-                
-            </div>
+            <form method="POST" action="#"> 
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                        <label for="nome"><strong>Enunciado</strong></label>
+                            <input type="text" class="form-control" name="enunciado" 
+                            placeholder="Informe o enunciado" required>   
+                        </div>
+                    </div>  
+                </div>  
+            
+                <div class="row">
+                    <div class="col-12">    
+                        <div class="form-group">
+                            <label for="nome"><strong>Disciplina</strong></label>
+                            <select class="browser-default custom-select" width="20%">
+                                <option selected>Disciplina</option>
+                                <option value="1">Informática</option>
+                            </select>
+                        </div>
+                    </div>  
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="nome"><strong>Alternativa A</strong></label>
+                            <input type="text" class="form-control" name="Alternativa-a"
+                            placeholder="Informe a alternativa A" required>
+                            </input>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="nome"><strong>Alternativa B</strong></label>
+                            <input type="text" class="form-control" name="Alternativa-b" 
+                            placeholder="Informe a alternativa B" required>
+                            </input>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="nome"><strong>Alternativa C</strong></label>
+                            <input type="text" class="form-control" name="Alternativa-c" 
+                            placeholder="Informe a alternativa C" required>
+                            </input>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="nome"><strong>Alternativa D</strong></label>
+                            <input type="text" class="form-control" name="Alternativa-d" 
+                            placeholder="Informe a alternativa D" required>
+                            </input>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="nome"><strong>Alternativa E</strong></label>
+                            <input type="text" class="form-control" name="Alternativa-e" 
+                            placeholder="Informe a alternativa E" required>
+                            </input>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="nome"><strong>Alternativa Correta</strong></label>
+                            <select class="browser-default custom-select" width="20%">
+                                <option selected>Alternativa Correta</option>
+                                <option value="A">Alternativa A</option>
+                                <option value="B">Alternativa B</option>
+                                <option value="C">Alternativa C</option>
+                                <option value="D">Alternativa D</option>
+                                <option value="E">Alternativa E</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-lg-12" style="text-align: center;">
+                        <a href="#"><button type="button" class="btn btn-secondary mr-sm-2">Adicionar Questão</button></a>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 

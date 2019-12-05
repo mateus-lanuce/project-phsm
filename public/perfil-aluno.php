@@ -19,7 +19,7 @@
     <!-- Menu de Navegação -->
     <nav class="navbar navbar-expand-lg bg-secondary text-uppercas fixed-top" id="mainNav">
     <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">SIMULADOS - ONLINE</a>
+        <a class="navbar-brand js-scroll-trigger" href="indexAluno.php">SIMULADOS - ONLINE</a>
         <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
         <i class="fas fa-bars"></i>
@@ -70,11 +70,12 @@
                             <?php echo "Aluno"  ?>
                         </label>
                     </div>
-                    <a href="#"><button type="button" class="btn btn-secondary mr-sm-2">Editar Perfil</button></a>
                 </form>
             </div>
+            <p class="text-right"><a href="ep-aluno.php"><button type="button" class="btn btn-secondary mr-sm-2">Editar Perfil</button></a><p>
         </div>
     </div>
+
 
 
     <!-- Footer -->
