@@ -43,6 +43,7 @@ class Create extends Conexao{
                         parent::closeConnection();
                         return true;
                     } else {
+                        parent::closeConnection();
                         echo "<script type='text/javascript'>
                             alert('O cadastro não foi feito com sucesso, ' +
                             'por favor tente novamente');
@@ -50,10 +51,9 @@ class Create extends Conexao{
                         return false;
                     }
 
-                    parent::closeConnection();
-
                 } else {
-
+                    parent::closeConnection();
+                    
                     echo "<script type='text/javascript'>
                         alert('email já cadastrado');
                     </script>"; 
@@ -112,6 +112,7 @@ class Create extends Conexao{
                         parent::closeConnection();
                         return true;
                     } else {
+                        parent::closeConnection();
                         echo "<script type='text/javascript'>
                             alert('O cadastro não foi feito com sucesso,
                             por favor tente novamente')
@@ -120,9 +121,9 @@ class Create extends Conexao{
                         return false;
                     }
 
-                    parent::closeConnection();
-
+                    
                 } else {
+                    parent::closeConnection();
                     echo "<script type='text/javascript'>
                         alert('email já cadastrado');
                     </script>"; 

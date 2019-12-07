@@ -1,10 +1,13 @@
 <?php 
-
-    
-
+    session_start();
+    if (isset($_SESSION['logado'])) {
+        echo 'sim';
+    } else 
+        echo 'nao';
+    // session_destroy();
 ?> 
 
-<DOCTYPE! html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,18 +29,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="m-questões.php">Minhas Questões</a>
-                </li>
-                <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="add-questão.php">Adicionar Questão</a>
-                </li>
+                <li class="navbar-nav ml-auto"><a class="nav-link py-3 px-0 px-lg-3 roundded js-scroll-trigger text-white">Pontuação: 100</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Professor X
+                        Aluno X
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="perfil-professor.php"><img class="mr-2" src="img/perfil.png" width="20px"></img>Perfil</a>
+                        <a class="dropdown-item" href="perfil-aluno.php"><img class="mr-2" src="img/perfil.png" width="20px"></img>Perfil</a>
                         <a class="dropdown-item" href="#"><img class="mr-2" src="img/configuracoes.png" width="20px"></img>Configurações</a>
                         <a class="dropdown-item" href="#">Outra ação</a>
                         <div class="dropdown-divider"></div>
@@ -49,6 +47,31 @@
     </div>
     </nav>
     <br><br><br><br><br>
+
+    <!-- Filtrar questões -->
+    <h1 class=" mb-3 text-center text-secondary">Questões</h1>
+    <div class="container">
+        <div class="jumbotron">
+            <center>
+                <div class="col-3">
+                    <form method="POST" action="#">
+                        <select class="browser-default custom-select" width="20%">
+                            <option selected>Disciplina</option>
+                            <option value="1">Informática</option>
+                       </select>
+                    </form>
+                </div>
+
+            <a href="#"><button type="button" class="btn btn-secondary mr-sm-2">Filtrar</button></a>
+            </center>
+        </div>
+    </div>
+
+    <!-- Mostrar questões -->
+
+
+
+
 
 
     <!-- Footer -->
@@ -76,17 +99,17 @@
         <i class="fa fa-chevron-up"></i>
         </a>
     </div>
-    
+
     <script>
-        alert("Seja vem vindo Professor!");
+        alert("Seja vem vindo Aluno!");
     </script>
+    </nav>
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
     <script src="../js/jqBootstrapValidation.js"></script>
     <script src="../js/contact_me.js"></script>
     <script src="../js/freelancer.min.js"></script>
-
 </body>
 
 </html>
