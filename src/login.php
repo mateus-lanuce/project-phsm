@@ -31,8 +31,13 @@ class Login extends Conexao{
                 parent::closeConnection();
 
                 if(is_object($retorno)) {
+                    session_start();
 
                     if($retorno->senha == $senhaEncrypt) {
+                        $_SESSION['id'] = $retorno->id;
+                        $_SESSION['nome'] = $retorno->nome;
+                        $_SESSION['email'] = $retorno->email;
+                        $_SESSION['logado'] = true;
                         return true;
                     } else {
                         echo "<script type=text/javascript> 

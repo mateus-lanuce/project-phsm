@@ -181,7 +181,3 @@ class Update extends Conexao {
         }
     }
 }
-
-$teste = new Update();
-
-var_dump($teste->atualizarProfessor('jose','toinho@gmail.com','mateus','jose', 5));

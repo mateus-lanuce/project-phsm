@@ -1,7 +1,10 @@
 <?php 
-
-    
-
+    session_start();
+    if (isset($_SESSION['logado'])) {
+        echo 'sim';
+    } else 
+        echo 'nao';
+    // session_destroy();
 ?> 
 
 <!DOCTYPE html>
