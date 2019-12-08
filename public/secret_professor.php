@@ -1,7 +1,25 @@
 <?php 
+    session_start();
+    //se não existir a sessão
+    require '../src/read.php';
 
-    
+    $logado = null;
+    $read = new Read();
 
+    if ((!isset($_SESSION['logado'])) == true) {
+        unset($_SESSION['logado']);
+        unset($_SESSION['id']);
+        unset($_SESSION['nome']);
+        unset($_SESSION['email']);
+        header('Location:../index.php');
+    } else {
+        $logado = $read->mostrarUsuario($_SESSION['id'], 'professor');
+        echo "
+        <script>
+         alert('Seja bem vindo ".$logado->nome."!');
+        </script> ";
+    }
+    // session_destroy();
 ?> 
 
 <!DOCTYPE html>
@@ -10,9 +28,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta chaset="utf-8" />
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
     <title>Simulado Online</title>
-    <link href="../css/freelancer.min.css" rel="stylesheet">
+    <link href="css/freelancer.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -77,9 +95,6 @@
         </a>
     </div>
     
-    <script>
-        alert("Seja vem vindo Professor!");
-    </script>
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>

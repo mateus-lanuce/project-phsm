@@ -1,9 +1,24 @@
 <?php 
     session_start();
-    if (isset($_SESSION['logado'])) {
-        echo 'sim';
-    } else 
-        echo 'nao';
+    //se não existir a sessão
+    require '../src/read.php';
+
+    $logado = null;
+    $read = new Read();
+
+    if ((!isset($_SESSION['logado'])) == true) {
+        unset($_SESSION['logado']);
+        unset($_SESSION['id']);
+        unset($_SESSION['nome']);
+        unset($_SESSION['email']);
+        header('Location:../index.php');
+    } else {
+        $logado = $read->mostrarUsuario($_SESSION['id'], 'aluno');
+        echo "
+        <script>
+         alert('Seja bem vindo ".$logado->nome."!');
+        </script> ";
+    }
     // session_destroy();
 ?> 
 
@@ -13,9 +28,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta chaset="utf-8" />
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
     <title>Simulado Online</title>
-    <link href="../css/freelancer.min.css" rel="stylesheet">
+    <link href="css/freelancer.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -29,17 +44,17 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="navbar-nav ml-auto"><a class="nav-link py-3 px-0 px-lg-3 roundded js-scroll-trigger text-white">Pontuação: 100</a></li>
+                <li class="navbar-nav ml-auto"><a class="nav-link py-3 px-0 px-lg-3 roundded js-scroll-trigger text-white">Pontuação: <?php echo $retorno->pontuacao ?></a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Aluno X
+                        Aluno <?php echo $logado->nome ?>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="perfil-aluno.php"><img class="mr-2" src="img/perfil.png" width="20px"></img>Perfil</a>
-                        <a class="dropdown-item" href="#"><img class="mr-2" src="img/configuracoes.png" width="20px"></img>Configurações</a>
+                        <a class="dropdown-item" href="perfil-aluno.php"><img class="mr-2" src="img/perfil.png" width="20px">Perfil</a>
+                        <a class="dropdown-item" href="#"><img class="mr-2" src="img/configuracoes.png" width="20px">Configurações</a>
                         <a class="dropdown-item" href="#">Outra ação</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#"><img class=" mb-1 mr-2" src="img/sair.png" width="18px"></img>Sair</a>
+                        <a class="dropdown-item" href="#"><img class=" mb-1 mr-2" src="img/sair.png" width="18px">Sair</a>
                     </div>
                 </li>
             </ul>
@@ -100,16 +115,11 @@
         </a>
     </div>
 
-    <script>
-        alert("Seja vem vindo Aluno!");
-    </script>
     </nav>
-    <script src="../vendor/jquery/jquery.min.js"></script>
-    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="../js/jqBootstrapValidation.js"></script>
-    <script src="../js/contact_me.js"></script>
-    <script src="../js/freelancer.min.js"></script>
+    <script src="js/boostrap.bundle.min.css"></script>
+    <script src="js/jquery.min.css"></script>
+    <script src="js/popper.min.css"></script>
+    <script src="js/freelancer.min.js"></script>
 </body>
 
 </html>
