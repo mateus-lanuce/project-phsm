@@ -6,11 +6,11 @@ class Read extends Conexao {
 
     public function mostrarUsuario($id, $cargo) {
         
-        if (!(is_null($id) || is_null($tab))) {
+        if (!(is_null($id) || is_null($cargo))) {
 
             $pdo = parent::connection();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "SELECT * FROM $tab where id = ?";
+            $sql = "SELECT * FROM $cargo where id = ?";
             $stm = $pdo->prepare($sql);
             $stm->bindValue(1, $id, PDO::PARAM_INT);
             $stm->execute();

@@ -16,7 +16,7 @@
         $logado = $read->mostrarUsuario($_SESSION['id'], 'aluno');
         echo "
         <script>
-         alert('Seja vem vindo $logado!');
+         alert('Seja bem vindo ".$logado->nome."!');
         </script> ";
     }
     // session_destroy();
@@ -44,10 +44,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="navbar-nav ml-auto"><a class="nav-link py-3 px-0 px-lg-3 roundded js-scroll-trigger text-white">Pontuação: 100</a></li>
+                <li class="navbar-nav ml-auto"><a class="nav-link py-3 px-0 px-lg-3 roundded js-scroll-trigger text-white">Pontuação: <?php echo $retorno->pontuacao ?></a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Aluno X
+                        Aluno <?php echo $logado->nome ?>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="perfil-aluno.php"><img class="mr-2" src="img/perfil.png" width="20px">Perfil</a>
