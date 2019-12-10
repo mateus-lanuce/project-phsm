@@ -1,18 +1,35 @@
 <?php 
 
-    
+session_start();
+//se não existir a sessão
+require '../src/read.php';
+
+$logado = null;
+$read = new Read();
+
+if ((!isset($_SESSION['logado'])) == true) {
+    unset($_SESSION['logado']);
+    unset($_SESSION['id']);
+    unset($_SESSION['nome']);
+    unset($_SESSION['email']);
+    header('Location:../index.php');
+} else {
+    $logado = $read->mostrarUsuario($_SESSION['id'], 'professor');
+}
+// session_destroy();
+
 
 ?> 
 
-<DOCTYPE! html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta chaset="utf-8" />
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
     <title>Editar perfil - Professor</title>
-    <link href="../css/freelancer.min.css" rel="stylesheet">
+    <link href="css/freelancer.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -34,7 +51,7 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Professor X
+                        Professor <?php echo $logado->nome?>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="perfil-professor.php"><img class="mr-2" src="img/perfil.png" width="20px"></img>Perfil</a>

@@ -32,11 +32,12 @@ class Create extends Conexao{
             
                     $senhaEncripty = sha1(sha1($senha));
 
-                    $sql = 'INSERT INTO aluno(nome, email, senha) VALUES (?,?,?)';
+                    $sql = 'INSERT INTO aluno(nome, email, senha, pontuacao) VALUES (?,?,?,?)';
                     $stm = $pdo->prepare($sql);
                     $stm->bindValue(1, $nome, PDO::PARAM_STR);
                     $stm->bindValue(2, $email, PDO::PARAM_STR);
                     $stm->bindValue(3, $senhaEncripty, PDO::PARAM_STR);
+                    $stm->bindValue(4, 0);
 
                     //testa se o cadastro foi feito com sucesso;
                     if($stm->execute()){

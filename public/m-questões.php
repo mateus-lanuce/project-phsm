@@ -1,10 +1,29 @@
 <?php 
 
-    
+session_start();
+//se não existir a sessão
+require '../src/read.php';
+
+$logado = null;
+$read = new Read();
+
+if ((!isset($_SESSION['logado'])) == true) {
+    unset($_SESSION['logado']);
+    unset($_SESSION['id']);
+    unset($_SESSION['nome']);
+    unset($_SESSION['email']);
+    header('Location:../index.php');
+} else {
+    $logado = $read->mostrarUsuario($_SESSION['id'], 'aluno');
+    $questoes = $read->mostrarQuestao($_SESSION['id']);
+}
+// session_destroy();
+
+
 
 ?> 
 
-<DOCTYPE! html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -34,7 +53,7 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Professor X
+                        Professor <?php echo $logado->nome?>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="perfil-professor.php"><img class="mr-2" src="img/perfil.png" width="20px"></img>Perfil</a>
@@ -55,7 +74,18 @@
     <div class="container">
         <div class="jumbotron">
             <div class="row">   
-                
+                <?php 
+                    foreach ($questoes as $key => $valor) {
+                        echo "materia: ". $valor['materia'];
+                        echo "enunciado: ". $valor['enunciado'];
+                        echo "alternativa a: ". $valor['alternativa_a'];
+                        echo "alternativa b: ". $valor['alternativa_b'];
+                        echo "alternativa c: ". $valor['alternativa_c'];
+                        echo "alternativa d: ". $valor['alternativa_d'];
+                        echo "alternativa e: ". $valor['alternativa_e'];
+                        echo "alternativa correta: ". $valor['correta'];
+                    }
+                ?>
             </div>
         </div>
     </div>
