@@ -48,11 +48,11 @@
                     <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="m-questões.php">Minhas Questões</a>
                 </li>
                 <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="add-questão.php">Adicionar Questão</a>
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="add-questao.php">Adicionar Questão</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Professor X
+                        Professor <?php $logado->nome?>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="perfil-professor.php"><img class="mr-2" src="img/perfil.png" width="20px"></img>Perfil</a>
@@ -77,7 +77,7 @@
                 <div class="col-lg-4">
                     <h4 class="text-uppercase mb-4">Volte Sempre</h4>
                     <p class="lead mb-0">O melhor site de questões para concursos públicos -
-                    <a href="IndexAluno.php"> Simulados Online</a>.</p>
+                    <a href="secret_professor.php"> Simulados Online</a>.</p>
                 </div>
             </center>
         </div>

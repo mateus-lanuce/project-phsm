@@ -1,18 +1,52 @@
 <?php 
 
-    
+session_start();
+//se não existir a sessão
+require '../src/read.php';
+require '../src/create.php';
+
+$logado = null;
+$read = new Read();
+$create = new Create();
+
+if ((!isset($_SESSION['logado'])) == true) {
+    unset($_SESSION['logado']);
+    unset($_SESSION['id']);
+    unset($_SESSION['nome']);
+    unset($_SESSION['email']);
+    header('Location:../index.php');
+} else {
+    $logado = $read->mostrarUsuario($_SESSION['id'], 'professor');
+}
+// session_destroy();
+
+if(isset($_POST)){
+
+    $enunciado = $_POST['enunciado'];
+    $materia = $_POST['materia'];
+    $alternativa_a = $_POST['alternativa-a'];
+    $alternativa_b = $_POST['alternativa-b'];
+    $alternativa_c = $_POST['alternativa-c'];
+    $alternativa_d = $_POST['alternativa-d'];
+    $alternativa_e = $_POST['alternativa-e'];
+    $correta = $_POST['correta'];
+
+    $create->cadastrarQuestao($enunciado, $materia, $_SESSION['id'], 
+        $alternativa_a, $alternativa_b, $alternativa_c, $alternativa_d, $alternativa_e,
+        $correta);
+}
 
 ?> 
 
-<DOCTYPE! html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta chaset="utf-8" />
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
     <title>Adicionar Questão</title>
-    <link href="../css/freelancer.min.css" rel="stylesheet">
+    <link href="css/freelancer.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -34,7 +68,7 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Professor X
+                        Professor <?php echo $logado->nome?>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="perfil-professor.php"><img class="mr-2" src="img/perfil.png" width="20px"></img>Perfil</a>
@@ -54,7 +88,7 @@
 
     <div class="container">
         <div class="jumbotron">
-            <form method="POST" action="#"> 
+            <form method="POST" action="add-questao.php"> 
                 <div class="row">
                     <div class="col-12">
                         <div class="form-group">
@@ -69,7 +103,7 @@
                     <div class="col-12">    
                         <div class="form-group">
                             <label for="nome"><strong>Disciplina</strong></label>
-                            <select class="browser-default custom-select" width="20%">
+                            <select class="browser-default custom-select" nome="materia" width="20%">
                                 <option selected>Disciplina</option>
                                 <option value="1">Informática</option>
                             </select>
@@ -83,7 +117,6 @@
                             <label for="nome"><strong>Alternativa A</strong></label>
                             <input type="text" class="form-control" name="Alternativa-a"
                             placeholder="Informe a alternativa A" required>
-                            </input>
                         </div>
                     </div>
                 </div>
@@ -136,7 +169,7 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label for="nome"><strong>Alternativa Correta</strong></label>
-                            <select class="browser-default custom-select" width="20%">
+                            <select class="browser-default custom-select" name="correta" width="20%">
                                 <option selected>Alternativa Correta</option>
                                 <option value="A">Alternativa A</option>
                                 <option value="B">Alternativa B</option>
@@ -150,7 +183,7 @@
                 <br>
                 <div class="row">
                     <div class="col-lg-12" style="text-align: center;">
-                        <a href="#"><button type="button" class="btn btn-secondary mr-sm-2">Adicionar Questão</button></a>
+                        <a href="add-questao.php"><button type="button" class="btn btn-secondary mr-sm-2">Adicionar Questão</button></a>
                     </div>
                 </div>
             </form>
