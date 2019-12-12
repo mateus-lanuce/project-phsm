@@ -37,7 +37,7 @@
      <div class="form"> 
           <form action="login.php" method="POST">
             <center>
-              <img src="../imgs/icon3.png" height="200px"><br>
+              <img src="../img/usuario-logado.png" height="200px"><br>
               <h5>ENTRAR</h5><br>
             </center>
 
@@ -50,7 +50,7 @@
               <option value="1">Professor</option>
               <option value="2">Aluno</option>
             </select>
-
+            <br><br>
             <button type="submit" class="btn-login">Entrar</button>
 
             <center>

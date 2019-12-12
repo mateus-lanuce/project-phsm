@@ -68,7 +68,7 @@ if(isset($_POST)) {
      <div class="form"> 
          <form action="Register.php" method="POST">
             <center>
-            <img src="../imgs/icon3.png" height="200px"><br>
+            <img src="../img/icon2.png" width="200px"><br>
             <h4>CADASTRE-SE</h4><br>
             </center>
   
