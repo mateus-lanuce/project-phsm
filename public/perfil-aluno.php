@@ -35,21 +35,20 @@ if ((!isset($_SESSION['logado'])) == true) {
     <!-- Menu de Navegação -->
     <nav class="navbar navbar-expand-lg bg-secondary text-uppercas fixed-top" id="mainNav">
     <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="indexAluno.php">SIMULADOS - ONLINE</a>
+        <a class="navbar-brand js-scroll-trigger" href="secret_aluno.php">SIMULADOS - ONLINE</a>
         <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
         <i class="fas fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
+            <li class="navbar-nav ml-auto"><a class="nav-link py-3 px-0 px-lg-3 roundded js-scroll-trigger text-white">Pontuação: <?php echo $logado->pontuacao ?></a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Aluno <?php echo $logado->nome?>
+                        Aluno(a) <?php echo $logado->nome?>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="perfil-aluno.php"><img class="mr-2" src="img/perfil.png" width="20px"></img>Perfil</a>
-                        <a class="dropdown-item" href="#"><img class="mr-2" src="img/configuracoes.png" width="20px"></img>Configurações</a>
-                        <a class="dropdown-item" href="#">Outra ação</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#"><img class=" mb-1 mr-2" src="img/sair.png" width="18px"></img>Sair</a>
                     </div>
@@ -58,7 +57,7 @@ if ((!isset($_SESSION['logado'])) == true) {
       </div>
     </div>
     </nav>
-    <br><br><br><br><br>
+    <br><br><br><br><br><br>
 
     <h1 class=" mb-3 text-center text-secondary">Meu Perfil</h1>
 
@@ -101,7 +100,7 @@ if ((!isset($_SESSION['logado'])) == true) {
                 <div class="col-lg-4">
                     <h4 class="text-uppercase mb-4">Volte Sempre</h4>
                     <p class="lead mb-0">O melhor site de questões para concursos públicos -
-                    <a href="IndexAluno.php"> Simulados Online</a>.</p>
+                    <a href="secret_aluno.php"> Simulados Online</a>.</p>
                 </div>
             </center>
         </div>

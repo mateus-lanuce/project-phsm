@@ -14,7 +14,7 @@ if ((!isset($_SESSION['logado'])) == true) {
     unset($_SESSION['email']);
     header('Location:../index.php');
 } else {
-    $logado = $read->mostrarUsuario($_SESSION['id'], 'aluno');
+    $logado = $read->mostrarUsuario($_SESSION['id'], 'professor');
     $questoes = $read->mostrarQuestao($_SESSION['id']);
 }
 // session_destroy();
@@ -49,16 +49,14 @@ if ((!isset($_SESSION['logado'])) == true) {
                     <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="m-questões.php">Minhas Questões</a>
                 </li>
                 <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="add-questao.php">Adicionar Questão</a>
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="add-questão.php   ">Adicionar Questão</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Professor <?php echo $logado->nome?>
+                        Professor  <?php echo $logado->nome?>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="perfil-professor.php"><img class="mr-2" src="img/perfil.png" width="20px"></img>Perfil</a>
-                        <a class="dropdown-item" href="#"><img class="mr-2" src="img/configuracoes.png" width="20px"></img>Configurações</a>
-                        <a class="dropdown-item" href="#">Outra ação</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#"><img class=" mb-1 mr-2" src="img/sair.png" width="18px"></img>Sair</a>
                     </div>
@@ -67,7 +65,7 @@ if ((!isset($_SESSION['logado'])) == true) {
       </div>
     </div>
     </nav>
-    <br><br><br><br><br>
+    <br><br><br><br><br><br>
 
     <h1 class=" mb-3 text-center text-secondary">Minhas Questões</h1>
 

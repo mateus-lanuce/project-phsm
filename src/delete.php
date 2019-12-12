@@ -1,6 +1,6 @@
 <?php
 
-require 'DB/conexao.class.php';
+require_once 'DB/conexao.class.php';
 
 //classe que deletar os itens do banco de dados.
 class Delete extends Conexao {

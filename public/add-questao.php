@@ -20,11 +20,11 @@ if ((!isset($_SESSION['logado'])) == true) {
 }
 // session_destroy();
 
-if(isset($_POST)){
+if(isset($_POST['btn-add-questao'])){
 
     $enunciado = $_POST['enunciado'];
     $materia = $_POST['materia'];
-    $alternativa_a = $_POST['alternativa-a'];
+    $alternativa_a = $_POST['Alternativa-a'];
     $alternativa_b = $_POST['alternativa-b'];
     $alternativa_c = $_POST['alternativa-c'];
     $alternativa_d = $_POST['alternativa-d'];
@@ -53,7 +53,7 @@ if(isset($_POST)){
     <!-- Menu de Navegação -->
     <nav class="navbar navbar-expand-lg bg-secondary text-uppercas fixed-top" id="mainNav">
     <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="indexProfessor.php">SIMULADOS - ONLINE</a>
+        <a class="navbar-brand js-scroll-trigger" href="secret_professor.php">SIMULADOS - ONLINE</a>
         <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
         <i class="fas fa-bars"></i>
@@ -61,10 +61,7 @@ if(isset($_POST)){
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="m-questões.php">Minhas Questões</a>
-                </li>
-                <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="add-questão.php">Adicionar Questão</a>
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="add-questao.php">Adicionar Questão</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -72,8 +69,6 @@ if(isset($_POST)){
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="perfil-professor.php"><img class="mr-2" src="img/perfil.png" width="20px"></img>Perfil</a>
-                        <a class="dropdown-item" href="#"><img class="mr-2" src="img/configuracoes.png" width="20px"></img>Configurações</a>
-                        <a class="dropdown-item" href="#">Outra ação</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#"><img class=" mb-1 mr-2" src="img/sair.png" width="18px"></img>Sair</a>
                     </div>
@@ -82,7 +77,7 @@ if(isset($_POST)){
       </div>
     </div>
     </nav>
-    <br><br><br><br><br>
+    <br><br><br><br><br><br>
 
     <h1 class=" mb-3 text-center text-secondary">Adicionar Questão</h1>
 
@@ -105,7 +100,17 @@ if(isset($_POST)){
                             <label for="nome"><strong>Disciplina</strong></label>
                             <select class="browser-default custom-select" nome="materia" width="20%">
                                 <option selected>Disciplina</option>
-                                <option value="1">Informática</option>
+                                <option value="1">Matemática</option>
+                                <option value="2">Química</option>
+                                <option value="3">Física</option>
+                                <option value="4">Biologia</option>
+                                <option value="5">História</option>
+                                <option value="6">Geografia</option>
+                                <option value="7">Filosofia</option>
+                                <option value="8">Sociologia</option>
+                                <option value="9">Portugês</option>
+                                <option value="10">Ingês</option>
+                                <option value="11">Espanhol</option>
                             </select>
                         </div>
                     </div>  
@@ -183,7 +188,7 @@ if(isset($_POST)){
                 <br>
                 <div class="row">
                     <div class="col-lg-12" style="text-align: center;">
-                        <a href="add-questao.php"><button type="button" class="btn btn-secondary mr-sm-2">Adicionar Questão</button></a>
+                        <a href="add-questao.php"><button type="button" class="btn btn-secondary mr-sm-2" name="btn-add-questao">Adicionar Questão</button></a>
                     </div>
                 </div>
             </form>

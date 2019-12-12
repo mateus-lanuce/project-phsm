@@ -1,6 +1,6 @@
 <?php
 
-    require 'DB/conexao.class.php';
+    require_once 'DB/conexao.class.php';
 
 //classe com tudo que for necessario para fazer login.
 class Login extends Conexao{

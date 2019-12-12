@@ -1,6 +1,6 @@
 <?php
 
-require 'DB/conexao.class.php';
+require_once 'DB/conexao.class.php';
 
 //classe com todos os metodos que fazem cadastro no banco.
 class Create extends Conexao{

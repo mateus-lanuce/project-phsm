@@ -14,10 +14,6 @@
         header('Location:../index.php');
     } else {
         $logado = $read->mostrarUsuario($_SESSION['id'], 'aluno');
-        echo "
-        <script>
-         alert('Seja bem vindo ".$logado->nome."!');
-        </script> ";
     }
     // session_destroy();
 ?> 
@@ -28,9 +24,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta chaset="utf-8" />
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
     <title>Simulado Online</title>
     <link href="css/freelancer.min.css" rel="stylesheet">
+    <style>
+
+    </style>
 </head>
 
 <body>
@@ -51,8 +49,6 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="perfil-aluno.php"><img class="mr-2" src="img/perfil.png" width="20px">Perfil</a>
-                        <a class="dropdown-item" href="#"><img class="mr-2" src="img/configuracoes.png" width="20px">Configurações</a>
-                        <a class="dropdown-item" href="#">Outra ação</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#"><img class=" mb-1 mr-2" src="img/sair.png" width="18px">Sair</a>
                     </div>
@@ -61,7 +57,7 @@
       </div>
     </div>
     </nav>
-    <br><br><br><br><br>
+    <br><br><br><br><br><br>
 
     <!-- Filtrar questões -->
     <h1 class=" mb-3 text-center text-secondary">Questões</h1>
@@ -72,11 +68,21 @@
                     <form method="POST" action="#">
                         <select class="browser-default custom-select" width="20%">
                             <option selected>Disciplina</option>
-                            <option value="1">Informática</option>
+                            <option value="1">Matemática</option>
+                            <option value="2">Química</option>
+                            <option value="3">Física</option>
+                            <option value="4">Biologia</option>
+                            <option value="5">História</option>
+                            <option value="6">Geografia</option>
+                            <option value="7">Filosofia</option>
+                            <option value="8">Sociologia</option>
+                            <option value="9">Portugês</option>
+                            <option value="10">Ingês</option>
+                            <option value="11">Espanhol</option>
                        </select>
                     </form>
                 </div>
-
+            <br>
             <a href="#"><button type="button" class="btn btn-secondary mr-sm-2">Filtrar</button></a>
             </center>
         </div>
@@ -84,7 +90,29 @@
 
     <!-- Mostrar questões -->
 
-
+    <div class="container">
+        <div class="jumbotron">
+            <p>
+                1) Podemos afirmar que uma notícia informa a situação da indústria brasileira num tom mais ameno 
+                enquanto outra usa um tom menos otimista? Justifique sua resposta em exemplos extraídos dos
+                dois textos.
+            </p>
+            <br>
+            <p>
+                <button type="button" class="btn btn-outline-primary rounded-circle ml-5">A</button> Altenativa A
+                <br><br>
+                <button type="button" class="btn btn-outline-primary rounded-circle ml-5">B</button> Altenativa B
+                <br><br>
+                <button type="button" class="btn btn-outline-primary rounded-circle ml-5">C</button> Altenativa C
+                <br><br>
+                <button type="button" class="btn btn-outline-primary rounded-circle ml-5">D</button> Altenativa D
+                <br><br>
+                <button type="button" class="btn btn-outline-primary rounded-circle ml-5">E</button> Altenativa E
+            </p>
+            <br>
+            <hr>    
+        </div>
+    </div>
 
 
 
@@ -97,7 +125,7 @@
                 <div class="col-lg-4">
                     <h4 class="text-uppercase mb-4">Volte Sempre</h4>
                     <p class="lead mb-0">O melhor site de questões para concursos públicos -
-                    <a href="IndexAluno.php"> Simulados Online</a>.</p>
+                    <a href="secret_aluno.php"> Simulados Online</a>.</p>
                 </div>
             </center>
         </div>
@@ -116,9 +144,11 @@
     </div>
 
     </nav>
-    <script src="js/boostrap.bundle.min.css"></script>
-    <script src="js/jquery.min.css"></script>
-    <script src="js/popper.min.css"></script>
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
     <script src="js/freelancer.min.js"></script>
 </body>
 

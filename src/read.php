@@ -1,6 +1,6 @@
 <?php
 
-require 'DB/conexao.class.php';
+require_once 'DB/conexao.class.php';
 
 class Read extends Conexao {
 

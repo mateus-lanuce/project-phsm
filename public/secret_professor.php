@@ -14,10 +14,8 @@
         header('Location:../index.php');
     } else {
         $logado = $read->mostrarUsuario($_SESSION['id'], 'professor');
-        echo "
-        <script>
-         alert('Seja bem vindo ".$logado->nome."!');
-        </script> ";
+        $questoes = $read->mostrarQuestao($_SESSION['id']);
+
     }
     // session_destroy();
 ?> 
@@ -28,7 +26,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta chaset="utf-8" />
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
     <title>Simulado Online</title>
     <link href="css/freelancer.min.css" rel="stylesheet">
 </head>
@@ -45,14 +42,11 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="m-questões.php">Minhas Questões</a>
-                </li>
-                <li class="nav-item mx-0 mx-lg-1">
                     <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="add-questao.php">Adicionar Questão</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Professor <?php $logado->nome?>
+                        Professor <?php echo $logado->nome?>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="perfil-professor.php"><img class="mr-2" src="img/perfil.png" width="20px"></img>Perfil</a>
@@ -64,7 +58,49 @@
       </div>
     </div>
     </nav>
-    <br><br><br><br><br>
+
+    <!-- Mostrar Questões  -->
+    <br><br><br><br><br><br>
+
+    <h1 class="mb-3 text-center text-secondary">Minhas Questões</h1>
+
+    <div class="container">
+        <div class="jumbotron">  
+            <p>
+                1) Podemos afirmar que uma notícia informa a situação da indústria brasileira num tom mais ameno 
+                enquanto outra usa um tom menos otimista? Justifique sua resposta em exemplos extraídos dos
+                dois textos.
+            </p>
+            <br>
+            <p>
+                <div class="ml-5">
+                    A) Altenativa A
+                    <br><br>
+                    B) Altenativa B
+                    <br><br>
+                    C) Altenativa C
+                    <br><br>
+                    D) Altenativa D
+                    <br><br>
+                    E) Altenativa E
+                </div>
+            </p>
+            <br>
+            <hr> 
+            <?php 
+                foreach ($questoes as $key => $valor) {
+                    echo "materia: ". $valor['materia'];
+                    echo "enunciado: ". $valor['enunciado'];
+                    echo "alternativa a: ". $valor['alternativa_a'];
+                    echo "alternativa b: ". $valor['alternativa_b'];
+                    echo "alternativa c: ". $valor['alternativa_c'];
+                    echo "alternativa d: ". $valor['alternativa_d'];
+                    echo "alternativa e: ". $valor['alternativa_e'];
+                    echo "alternativa correta: ". $valor['correta'];
+                }
+            ?> 
+        </div>
+    </div>
 
 
     <!-- Footer -->
