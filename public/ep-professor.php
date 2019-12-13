@@ -24,8 +24,7 @@
     $email = isset($_POST['Email']) ? $_POST['Email'] : null;
     $senha = isset($_POST['Senha']) ? $_POST['Senha'] : null;
 
-    echo $nome;
-    var_dump($update->atualizarProfessor($nome, $email, $senha, $senha, $logado->id));
+    $update->atualizarProfessor($nome, $email, $senha, $senha, $logado->id);
 ?> 
 
 <!DOCTYPE html>
@@ -59,7 +58,7 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="perfil-professor.php"><img class="mr-2" src="img/perfil.png" width="20px"></img>Perfil</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#"><img class=" mb-1 mr-2" src="img/sair.png" width="18px"></img>Sair</a>
+                        <a class="dropdown-item" href="sair.php"><img class=" mb-1 mr-2" src="img/sair.png" width="18px"></img>Sair</a>
                     </div>
                 </li>
             </ul>

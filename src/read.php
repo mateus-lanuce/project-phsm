@@ -23,7 +23,7 @@ class Read extends Conexao {
             return false;
     }
 
-    public function mostrarQuestao($id_professor) {
+    public function mostrarQuestaoProf($id_professor) {
         
         if (!is_null($id_professor)) {
 
@@ -32,6 +32,25 @@ class Read extends Conexao {
             $sql = "SELECT * FROM questao where professor_id = ?";
             $stm = $pdo->prepare($sql);
             $stm->bindValue(1, $id_professor, PDO::PARAM_INT);
+            $stm->execute();
+            $retorno = $stm->fetchAll();
+            parent::closeConnection();
+
+            return $retorno;
+
+        } else 
+            return false;
+    }
+
+    public function mostrarQuestaoMateria($materia) {
+        
+        if (!is_null($materia)) {
+
+            $pdo = parent::connection();
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $sql = "SELECT * FROM questao where materia = ?";
+            $stm = $pdo->prepare($sql);
+            $stm->bindValue(1, $materia, PDO::PARAM_STR);
             $stm->execute();
             $retorno = $stm->fetchAll();
             parent::closeConnection();

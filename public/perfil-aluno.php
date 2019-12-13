@@ -50,7 +50,7 @@ if ((!isset($_SESSION['logado'])) == true) {
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="perfil-aluno.php"><img class="mr-2" src="img/perfil.png" width="20px"></img>Perfil</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#"><img class=" mb-1 mr-2" src="img/sair.png" width="18px"></img>Sair</a>
+                        <a class="dropdown-item" href="sair.php"><img class=" mb-1 mr-2" src="img/sair.png" width="18px"></img>Sair</a>
                     </div>
                 </li>
             </ul>
@@ -65,7 +65,7 @@ if ((!isset($_SESSION['logado'])) == true) {
         <div class="jumbotron">
             <div class="row">   
                 <div class="col12">
-                    <img class="ml-5" src="img/usuario-logado.png" width="150px"></img>   
+                    <img class="ml-5" src="img/usuario-logado.png" width="150px"> 
                 </div>
                 <form method="POST">
                     <div class="row">

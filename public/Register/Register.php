@@ -20,10 +20,13 @@ if(isset($_POST)) {
 		case 1:
 
 			if ($objCreate->cadastrarProfessor($nome, $email, $senha)) {
+        
 				echo "<script>
 					alert('Cadastro realizado com sucesso, ' + 
 						'por favor faça login');
         </script>";
+
+        // header("Refresh: 2; url=../login/login.php");
 			}
 
 			break;

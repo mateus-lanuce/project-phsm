@@ -1,25 +1,30 @@
 <?php 
 
-session_start();
-//se não existir a sessão
-require '../src/read.php';
+    session_start();
+    //se não existir a sessão
+    require_once '../src/read.php';
+    require_once '../src/update.php';
 
-$logado = null;
-$read = new Read();
+    $logado = null;
+    $read = new Read();
+    $update = new Update();
 
-if ((!isset($_SESSION['logado'])) == true) {
-    unset($_SESSION['logado']);
-    unset($_SESSION['id']);
-    unset($_SESSION['nome']);
-    unset($_SESSION['email']);
-    header('Location:../index.php');
-} else {
-    $logado = $read->mostrarUsuario($_SESSION['id'], 'aluno');
-}
-// session_destroy();
+    if ((!isset($_SESSION['logado'])) == true) {
+        unset($_SESSION['logado']);
+        unset($_SESSION['id']);
+        unset($_SESSION['nome']);
+        unset($_SESSION['email']);
+        header('Location:../index.php');
+    } else {
+        $logado = $read->mostrarUsuario($_SESSION['id'], 'aluno');
+    }
+    // session_destroy();
 
-$nome = (isset($_POST['Nome']) ? $_POST['Nome'] : null);
-$email = (isset($_POST['Email']) ? $_POST['Email'] : null); 
+    $nome = isset($_POST['Nome']) ? $_POST['Nome'] : null;
+    $email = isset($_POST['Email']) ? $_POST['Email'] : null;
+    $senha = isset($_POST['Senha']) ? $_POST['Senha'] : null;
+
+    $update->atualizarAluno($nome, $email, $senha, $senha, $logado->id);
 
 ?> 
 
@@ -53,7 +58,7 @@ $email = (isset($_POST['Email']) ? $_POST['Email'] : null);
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="perfil-aluno.php"><img class="mr-2" src="img/perfil.png" width="20px"></img>Perfil</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#"><img class=" mb-1 mr-2" src="img/sair.png" width="18px"></img>Sair</a>
+                        <a class="dropdown-item" href="sair.php"><img class=" mb-1 mr-2" src="img/sair.png" width="18px"></img>Sair</a>
                     </div>  
                 </li>
             </ul>
@@ -90,9 +95,15 @@ $email = (isset($_POST['Email']) ? $_POST['Email'] : null);
                             <?php echo "Aluno" ?>
                         </label>
                     </div>
+                    <br>
+                    <div class="row">
+                        <label class="ml-5" for="Senha">Sua senha:
+                        <input class="form-control" type="password" placeholder="Senha"
+                        name="Senha" required></label>
+                    </div>
+                    <p class="text-right"><button type="submit" class="btn btn-secondary mr-sm-2" name="btn-perfil-update">Salvar Alterações</button>
                 </form>
             </div>
-            <p class="text-right"><a href="ep-aluno.php"><button type="button" class="btn btn-secondary mr-sm-2" name="btn-perfil-update">Salvar Alterações</button></a><p>
         </div>
     </div>
 

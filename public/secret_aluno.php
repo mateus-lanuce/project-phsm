@@ -16,6 +16,10 @@
         $logado = $read->mostrarUsuario($_SESSION['id'], 'aluno');
     }
     // session_destroy();
+
+    $materia = isset($_GET['materia']) ? $_GET['materia'] : null;
+
+    $read->mostrarQuestaoMateria($materia);
 ?> 
 
 <!DOCTYPE html>
@@ -50,7 +54,7 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="perfil-aluno.php"><img class="mr-2" src="img/perfil.png" width="20px">Perfil</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#"><img class=" mb-1 mr-2" src="img/sair.png" width="18px">Sair</a>
+                        <a class="dropdown-item" href="sair.php"><img class=" mb-1 mr-2" src="img/sair.png" width="18px">Sair</a>
                     </div>
                 </li>
             </ul>
@@ -65,25 +69,26 @@
         <div class="jumbotron">
             <center>
                 <div class="col-3">
-                    <form method="POST" action="#">
-                        <select class="browser-default custom-select" width="20%">
+                    <form method="GET" action="secret_aluno.php">
+                        <select class="browser-default custom-select" name ="materia" width="20%">
                             <option selected>Disciplina</option>
-                            <option value="1">Matemática</option>
-                            <option value="2">Química</option>
-                            <option value="3">Física</option>
-                            <option value="4">Biologia</option>
-                            <option value="5">História</option>
-                            <option value="6">Geografia</option>
-                            <option value="7">Filosofia</option>
-                            <option value="8">Sociologia</option>
-                            <option value="9">Portugês</option>
-                            <option value="10">Ingês</option>
-                            <option value="11">Espanhol</option>
+                            <option value="Matemática">Matemática</option>
+                            <option value="Química">Química</option>
+                            <option value="Física">Física</option>
+                            <option value="Biologia">Biologia</option>
+                            <option value="História">História</option>
+                            <option value="Geografia">Geografia</option>
+                            <option value="Filosofia">Filosofia</option>
+                            <option value="Sociologia">Sociologia</option>
+                            <option value="Português">Português</option>
+                            <option value="Inglês">Inglês</option>
+                            <option value="Espanhol">Espanhol</option>
                        </select>
+
+                        <button type="submit" class="mt-4 mb-0 btn btn-secondary mr-sm-2">Filtrar</button>
                     </form>
                 </div>
             <br>
-            <a href="#"><button type="button" class="btn btn-secondary mr-sm-2">Filtrar</button></a>
             </center>
         </div>
     </div>
