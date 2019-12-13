@@ -191,6 +191,9 @@ class Create extends Conexao{
                 //testa se o cadastro foi feito com sucesso;
                 if($stm->execute()){
                     parent::closeConnection();
+                    echo "<script type='text/javascript'>
+                        alert('O cadastro foi feito com sucesso');
+                    </script>"; 
                     return true;
                 } else {
                     echo "<script type='text/javascript'>

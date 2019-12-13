@@ -20,21 +20,18 @@ if ((!isset($_SESSION['logado'])) == true) {
 }
 // session_destroy();
 
-if(isset($_POST['btn-add-questao'])){
+    $enunciado = isset($_GET['enunciado']) ? $_GET['enunciado'] : null;
+    $materia = isset($_GET['materia']) ? $_GET['materia'] : null;
+    $alternativa_a = isset($_GET['Alternativa_a']) ? $_GET['Alternativa_a'] : null;
+    $alternativa_b = isset($_GET['Alternativa_b']) ? $_GET['Alternativa_b'] : null;
+    $alternativa_c = isset($_GET['Alternativa_c']) ? $_GET['Alternativa_c'] : null;
+    $alternativa_d = isset($_GET['Alternativa_d']) ? $_GET['Alternativa_d'] : null;
+    $alternativa_e = isset($_GET['Alternativa_e']) ? $_GET['Alternativa_e'] : null;
+    $correta = isset($_GET['correta']) ? $_GET['correta'] : null;
 
-    $enunciado = $_POST['enunciado'];
-    $materia = $_POST['materia'];
-    $alternativa_a = $_POST['Alternativa-a'];
-    $alternativa_b = $_POST['alternativa-b'];
-    $alternativa_c = $_POST['alternativa-c'];
-    $alternativa_d = $_POST['alternativa-d'];
-    $alternativa_e = $_POST['alternativa-e'];
-    $correta = $_POST['correta'];
-
-    $create->cadastrarQuestao($enunciado, $materia, $_SESSION['id'], 
+    $create->cadastrarQuestao($enunciado, $materia, $logado->id , 
         $alternativa_a, $alternativa_b, $alternativa_c, $alternativa_d, $alternativa_e,
         $correta);
-}
 
 ?> 
 
@@ -68,9 +65,9 @@ if(isset($_POST['btn-add-questao'])){
                         Professor <?php echo $logado->nome?>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="perfil-professor.php"><img class="mr-2" src="img/perfil.png" width="20px"></img>Perfil</a>
+                        <a class="dropdown-item" href="perfil-professor.php"><img class="mr-2" src="img/perfil.png" width="20px">Perfil</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#"><img class=" mb-1 mr-2" src="img/sair.png" width="18px"></img>Sair</a>
+                        <a class="dropdown-item" href="#"><img class=" mb-1 mr-2" src="img/sair.png" width="18px">Sair</a>
                     </div>
                 </li>
             </ul>
@@ -83,7 +80,7 @@ if(isset($_POST['btn-add-questao'])){
 
     <div class="container">
         <div class="jumbotron">
-            <form method="POST" action="add-questao.php"> 
+            <form method="GET" action="add-questao.php"> 
                 <div class="row">
                     <div class="col-12">
                         <div class="form-group">
@@ -98,19 +95,19 @@ if(isset($_POST['btn-add-questao'])){
                     <div class="col-12">    
                         <div class="form-group">
                             <label for="nome"><strong>Disciplina</strong></label>
-                            <select class="browser-default custom-select" nome="materia" width="20%">
+                            <select class="browser-default custom-select" name="materia" width="20%" required>
                                 <option selected>Disciplina</option>
-                                <option value="1">Matemática</option>
-                                <option value="2">Química</option>
-                                <option value="3">Física</option>
-                                <option value="4">Biologia</option>
-                                <option value="5">História</option>
-                                <option value="6">Geografia</option>
-                                <option value="7">Filosofia</option>
-                                <option value="8">Sociologia</option>
-                                <option value="9">Portugês</option>
-                                <option value="10">Ingês</option>
-                                <option value="11">Espanhol</option>
+                                <option value="Matemática">Matemática</option>
+                                <option value="Química">Química</option>
+                                <option value="Física">Física</option>
+                                <option value="Biologia">Biologia</option>
+                                <option value="História">História</option>
+                                <option value="Geografia">Geografia</option>
+                                <option value="Filosofia">Filosofia</option>
+                                <option value="Sociologia">Sociologia</option>
+                                <option value="Português">Português</option>
+                                <option value="Inglês">Inglês</option>
+                                <option value="Espanhol">Espanhol</option>
                             </select>
                         </div>
                     </div>  
@@ -120,7 +117,7 @@ if(isset($_POST['btn-add-questao'])){
                     <div class="col-12">
                         <div class="form-group">
                             <label for="nome"><strong>Alternativa A</strong></label>
-                            <input type="text" class="form-control" name="Alternativa-a"
+                            <input type="text" class="form-control" name="Alternativa_a"
                             placeholder="Informe a alternativa A" required>
                         </div>
                     </div>
@@ -130,9 +127,8 @@ if(isset($_POST['btn-add-questao'])){
                     <div class="col-12">
                         <div class="form-group">
                             <label for="nome"><strong>Alternativa B</strong></label>
-                            <input type="text" class="form-control" name="Alternativa-b" 
+                            <input type="text" class="form-control" name="Alternativa_b" 
                             placeholder="Informe a alternativa B" required>
-                            </input>
                         </div>
                     </div>
                 </div>
@@ -141,9 +137,8 @@ if(isset($_POST['btn-add-questao'])){
                     <div class="col-12">
                         <div class="form-group">
                             <label for="nome"><strong>Alternativa C</strong></label>
-                            <input type="text" class="form-control" name="Alternativa-c" 
+                            <input type="text" class="form-control" name="Alternativa_c" 
                             placeholder="Informe a alternativa C" required>
-                            </input>
                         </div>
                     </div>
                 </div>
@@ -152,9 +147,8 @@ if(isset($_POST['btn-add-questao'])){
                     <div class="col-12">
                         <div class="form-group">
                             <label for="nome"><strong>Alternativa D</strong></label>
-                            <input type="text" class="form-control" name="Alternativa-d" 
+                            <input type="text" class="form-control" name="Alternativa_d" 
                             placeholder="Informe a alternativa D" required>
-                            </input>
                         </div>
                     </div>
                 </div>
@@ -163,9 +157,8 @@ if(isset($_POST['btn-add-questao'])){
                     <div class="col-12">
                         <div class="form-group">
                             <label for="nome"><strong>Alternativa E</strong></label>
-                            <input type="text" class="form-control" name="Alternativa-e" 
+                            <input type="text" class="form-control" name="Alternativa_e" 
                             placeholder="Informe a alternativa E" required>
-                            </input>
                         </div>
                     </div>
                 </div>
@@ -188,7 +181,7 @@ if(isset($_POST['btn-add-questao'])){
                 <br>
                 <div class="row">
                     <div class="col-lg-12" style="text-align: center;">
-                        <a href="add-questao.php"><button type="button" class="btn btn-secondary mr-sm-2" name="btn-add-questao">Adicionar Questão</button></a>
+                        <button type="submit" class="btn btn-secondary mr-sm-2">Adicionar Questão</button>
                     </div>
                 </div>
             </form>
@@ -203,7 +196,7 @@ if(isset($_POST['btn-add-questao'])){
                 <div class="col-lg-4">
                     <h4 class="text-uppercase mb-4">Volte Sempre</h4>
                     <p class="lead mb-0">O melhor site de questões para concursos públicos -
-                    <a href="IndexAluno.php"> Simulados Online</a>.</p>
+                    <a href="secret-professor.php"> Simulados Online</a>.</p>
                 </div>
             </center>
         </div>
@@ -224,7 +217,7 @@ if(isset($_POST['btn-add-questao'])){
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="../js/jqBootstrapValidation.js"></script>
+    <!-- <script src="../js/jqBootstrapValidation.js"></script> -->
     <script src="../js/contact_me.js"></script>
     <script src="../js/freelancer.min.js"></script>
 

@@ -67,7 +67,7 @@ if ((!isset($_SESSION['logado'])) == true) {
         <div class="jumbotron">
             <div class="row">   
                 <div class="col12">
-                    <img class="ml-5" src="img/usuario-logado.png" width="150px"></img>   
+                    <img class="ml-5" src="img/usuario-logado.png" width="150px">   
                 </div>
                 <form method="POST">
                     <div class="row">

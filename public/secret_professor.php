@@ -15,7 +15,6 @@
     } else {
         $logado = $read->mostrarUsuario($_SESSION['id'], 'professor');
         $questoes = $read->mostrarQuestao($_SESSION['id']);
-
     }
     // session_destroy();
 ?> 
@@ -64,44 +63,34 @@
 
     <h1 class="mb-3 text-center text-secondary">Minhas Questões</h1>
 
-    <div class="container">
-        <div class="jumbotron">  
-            <p>
-                1) Podemos afirmar que uma notícia informa a situação da indústria brasileira num tom mais ameno 
-                enquanto outra usa um tom menos otimista? Justifique sua resposta em exemplos extraídos dos
-                dois textos.
-            </p>
-            <br>
-            <p>
-                <div class="ml-5">
-                    A) Altenativa A
-                    <br><br>
-                    B) Altenativa B
-                    <br><br>
-                    C) Altenativa C
-                    <br><br>
-                    D) Altenativa D
-                    <br><br>
-                    E) Altenativa E
-                </div>
-            </p>
-            <br>
-            <hr> 
-            <?php 
-                foreach ($questoes as $key => $valor) {
-                    echo "materia: ". $valor['materia'];
-                    echo "enunciado: ". $valor['enunciado'];
-                    echo "alternativa a: ". $valor['alternativa_a'];
-                    echo "alternativa b: ". $valor['alternativa_b'];
-                    echo "alternativa c: ". $valor['alternativa_c'];
-                    echo "alternativa d: ". $valor['alternativa_d'];
-                    echo "alternativa e: ". $valor['alternativa_e'];
-                    echo "alternativa correta: ". $valor['correta'];
-                }
-            ?> 
-        </div>
-    </div>
+    <?php
+        foreach ($questoes as $key => $valor) {
 
+            echo "<div class='container'>
+                <div class='jumbotron'>  
+                    <p>".
+                        $valor['enunciado']
+                    ."</p>
+                    <br>
+                    <p>
+                        <div class='ml-5'>
+                            A) ". $valor['alternativa_a'] ."
+                            <br><br>
+                            B) ". $valor['alternativa_b'] ."
+                            <br><br>
+                            C) ". $valor['alternativa_c'] ."
+                            <br><br>
+                            D) ". $valor['alternativa_d'] ."
+                            <br><br>
+                            E) ". $valor['alternativa_e'] ."
+                        </div>
+                    </p>
+                    <br>
+                    <hr>
+                </div>
+            </div>";
+        }
+    ?>
 
     <!-- Footer -->
 

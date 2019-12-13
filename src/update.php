@@ -91,7 +91,7 @@ class Update extends Conexao {
         if(!(is_null($nome) || (is_null($email) || 
             is_null($senha) || is_null($id_prof)|| is_null($senha_antiga)))
         ) {
-            
+            echo 'teste';
             //testar se o id é realmente um int
             if(filter_var($id_prof, FILTER_VALIDATE_INT) && 
                 filter_var($email, FILTER_VALIDATE_EMAIL)) {

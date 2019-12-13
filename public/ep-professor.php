@@ -1,24 +1,31 @@
 <?php 
 
-session_start();
-//se não existir a sessão
-require '../src/read.php';
+    session_start();
+    //se não existir a sessão
+    require_once '../src/read.php';
+    require_once '../src/update.php';
 
-$logado = null;
-$read = new Read();
+    $logado = null;
+    $read = new Read();
+    $update = new Update();
 
-if ((!isset($_SESSION['logado'])) == true) {
-    unset($_SESSION['logado']);
-    unset($_SESSION['id']);
-    unset($_SESSION['nome']);
-    unset($_SESSION['email']);
-    header('Location:../index.php');
-} else {
-    $logado = $read->mostrarUsuario($_SESSION['id'], 'professor');
-}
-// session_destroy();
+    if ((!isset($_SESSION['logado'])) == true) {
+        unset($_SESSION['logado']);
+        unset($_SESSION['id']);
+        unset($_SESSION['nome']);
+        unset($_SESSION['email']);
+        header('Location:../index.php');
+    } else {
+        $logado = $read->mostrarUsuario($_SESSION['id'], 'professor');
+    }
+    // session_destroy();
 
+    $nome = isset($_POST['Nome']) ? $_POST['Nome'] : null;
+    $email = isset($_POST['Email']) ? $_POST['Email'] : null;
+    $senha = isset($_POST['Senha']) ? $_POST['Senha'] : null;
 
+    echo $nome;
+    var_dump($update->atualizarProfessor($nome, $email, $senha, $senha, $logado->id));
 ?> 
 
 <!DOCTYPE html>
@@ -64,35 +71,41 @@ if ((!isset($_SESSION['logado'])) == true) {
     <h1 class=" mb-3 text-center text-secondary">Editar Perfil</h1>
 
 <div class="container">
-        <div class="jumbotron">
-            <div class="row">   
-                <div class="col12">
-                    <img class="ml-5" src="img/usuario-logado.png" width="150px"></img>   
-                </div>
-                <form method="POST" action="update.php">
-                    <div class="row">
-                        <label class="ml-5 mt-2" for="name">Nome: 
-                            <input class="form-control" type="text" placeholder="Nome completo"
-                            name="Nome" value="<?php echo $logado->nome?>" required></input>
-                        </label>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <label class="ml-5" for="email">Email: 
-                        <input class="form-control" type="text" placeholder="Nome completo"
-                        name="Nome" value="<?php echo $logado->email?>" required></input></label>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <label class="ml-5" for="cargo">Cargo: 
-                            <?php echo "Professor"; ?>
-                        </label>
-                    </div>
-                </form>
+    <div class="jumbotron">
+        <div class="row">   
+            <div class="col12">
+                <img class="ml-5" src="img/usuario-logado.png" width="150px"> 
             </div>
-            <p class="text-right"><a href="ep-professor.php"><button type="button" class="btn btn-secondary mr-sm-2">Salvar Alterações</button></a><p>
+            <form method="POST" action="ep-professor.php">
+                <div class="row">
+                    <label class="ml-5 mt-2" for="name">Nome: 
+                        <input class="form-control" type="text" placeholder="Nome completo"
+                        name="Nome" value=<?php echo $logado->nome?> required>
+                    </label>
+                </div>
+                <br>
+                <div class="row">
+                    <label class="ml-5" for="email">Email: 
+                    <input class="form-control" type="text" placeholder="Email"
+                    name="Email" value=<?php echo $logado->email?> required></label>
+                </div>
+                <br>
+                <div class="row">
+                    <label class="ml-5" for="cargo">Cargo: 
+                        <?php echo "Professor"; ?>
+                    </label>
+                </div>
+                <br>
+                <div class="row">
+                    <label class="ml-5" for="Senha">Sua senha:
+                    <input class="form-control" type="password" placeholder="Senha"
+                    name="Senha" required></label>
+                </div>
+                <p class="text-right"><button type="submit" class="btn btn-secondary mr-sm-2">Salvar Alterações</button><p>
+            </form>
         </div>
     </div>
+</div>
 
 
     <!-- Footer -->
@@ -102,7 +115,7 @@ if ((!isset($_SESSION['logado'])) == true) {
                 <div class="col-lg-4">
                     <h4 class="text-uppercase mb-4">Volte Sempre</h4>
                     <p class="lead mb-0">O melhor site de questões para concursos públicos -
-                    <a href="IndexAluno.php"> Simulados Online</a>.</p>
+                    <a href="../index.php"> Simulados Online</a>.</p>
                 </div>
             </center>
         </div>
@@ -123,8 +136,8 @@ if ((!isset($_SESSION['logado'])) == true) {
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="../js/jqBootstrapValidation.js"></script>
-    <script src="../js/contact_me.js"></script>
+    <!-- <script src="../js/jqBootstrapValidation.js"></script> -->
+    <!-- <script src="../js/contact_me.js"></script> -->
     <script src="../js/freelancer.min.js"></script>
 
 </body>
