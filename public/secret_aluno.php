@@ -2,9 +2,11 @@
     session_start();
     //se não existir a sessão
     require '../src/read.php';
+    require_once '../src/update.php';
 
     $logado = null;
     $read = new Read();
+    $update = new Update();
 
     if ((!isset($_SESSION['logado'])) == true) {
         unset($_SESSION['logado']);
@@ -17,9 +19,24 @@
     }
     // session_destroy();
 
-    $materia = isset($_GET['materia']) ? $_GET['materia'] : null;
+    $materia = isset($_GET['materia']) ? $_GET['materia'] : true;
 
-    $read->mostrarQuestaoMateria($materia);
+    $questoes = $read->mostrarQuestaoMateria($materia);
+
+    $count = 0;
+
+    if (isset($_GET['btn_quest'])) {
+        $questoes = $read->mostrarQuestaoMateria($_GET['materia']);
+
+        foreach ($questoes as $key => $value) {
+            if ($_GET["alternativa_$key"] == $value['correta']) {
+                $update->aumentarPontuaçao($logado->id);
+                $count++;
+            }
+        }
+
+        echo "<script>alert('você acertou $count questoẽs')</script>";
+    }
 ?> 
 
 <!DOCTYPE html>
@@ -94,31 +111,44 @@
     </div>
 
     <!-- Mostrar questões -->
+    <form action="secret_aluno.php" method="GET">
+        <?php
 
-    <div class="container">
-        <div class="jumbotron">
-            <p>
-                1) Podemos afirmar que uma notícia informa a situação da indústria brasileira num tom mais ameno 
-                enquanto outra usa um tom menos otimista? Justifique sua resposta em exemplos extraídos dos
-                dois textos.
-            </p>
-            <br>
-            <p>
-                <button type="button" class="btn btn-outline-primary rounded-circle ml-5">A</button> Altenativa A
-                <br><br>
-                <button type="button" class="btn btn-outline-primary rounded-circle ml-5">B</button> Altenativa B
-                <br><br>
-                <button type="button" class="btn btn-outline-primary rounded-circle ml-5">C</button> Altenativa C
-                <br><br>
-                <button type="button" class="btn btn-outline-primary rounded-circle ml-5">D</button> Altenativa D
-                <br><br>
-                <button type="button" class="btn btn-outline-primary rounded-circle ml-5">E</button> Altenativa E
-            </p>
-            <br>
-            <hr>    
-        </div>
-    </div>
+            foreach ($questoes as $key => $value) {
+                # code...    
+                echo "
+                <div class='container'>
+                    <div class='jumbotron'>
+                        <p>
+                            ". $value['enunciado'] ."
+                        </p>
+                        <br> 
+                            <input type='radio' name='alternativa_$key' value='a' class='btn btn-outline-primary ml-5'></input>
+                            ". $value['alternativa_a'] ."
+                            <br><br> 
+                            <input type='radio' name='alternativa_$key' value='b' class='btn btn-outline-primary ml-5'></input>
+                            ". $value['alternativa_b'] ."
+                            <br><br>
+                            <input type='radio' name='alternativa_$key' value='c' class='btn btn-outline-primary ml-5'></input> 
+                            ". $value['alternativa_c'] ."
+                            <br><br> 
+                            <input type='radio' name='alternativa_$key' value='d' class='btn btn-outline-primary ml-5'></input>
+                            ". $value['alternativa_d'] ."
+                            <br><br> 
+                            <input type='radio' name='alternativa_$key' value='e' class='btn btn-outline-primary ml-5'></input>
+                            ". $value['alternativa_e'] ."
 
+                            <input type='hidden' name=materia value=". $value['materia'] .">
+
+                            <br><br>
+                            <button type='submit' name='btn_quest' class='btn btn-outline-primary ml-5'>Responder</button>
+                        <br>
+                        <hr>    
+                    </div>
+                </div>";
+            }
+        ?>
+    </form>
 
 
 
@@ -149,6 +179,8 @@
     </div>
 
     </nav>
+
+
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>

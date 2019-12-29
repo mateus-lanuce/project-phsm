@@ -101,7 +101,7 @@
                         <input class="form-control" type="password" placeholder="Senha"
                         name="Senha" required></label>
                     </div>
-                    <p class="text-right"><button type="submit" class="btn btn-secondary mr-sm-2" name="btn-perfil-update">Salvar Alterações</button>
+                    <p class="text-right"><button type="submit" class="btn btn-secondary" name="btn-perfil-update">Salvar Alterações</button>
                 </form>
             </div>
         </div>

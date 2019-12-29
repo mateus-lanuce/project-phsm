@@ -17,6 +17,7 @@
         $questoes = $read->mostrarQuestaoProf($_SESSION['id']);
     }
     // session_destroy();
+    
 ?> 
 
 <!DOCTYPE html>
@@ -68,6 +69,9 @@
 
             echo "<div class='container'>
                 <div class='jumbotron'>  
+                    <p>
+                        Materia: ".$valor['materia']."
+                    </p>
                     <p>".
                         $valor['enunciado']
                     ."</p>

@@ -79,7 +79,7 @@
                 <div class="row">
                     <label class="ml-5 mt-2" for="name">Nome: 
                         <input class="form-control" type="text" placeholder="Nome completo"
-                        name="Nome" value=<?php echo $logado->nome?> required>
+                        name="Nome" value="<?php echo $logado->nome?>" required>
                     </label>
                 </div>
                 <br>
